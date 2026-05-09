@@ -26,7 +26,7 @@ try:
     print("✅ Database Connected Successfully!")
 except Exception as e:
     print(f"❌ Connection Failed: {e}")
-)
+
 
 @myapp.route("/home")
 def home():
