@@ -16,7 +16,7 @@ DB_PORT = 12345 # Cloud DB ka port aksar 3306 nahi hota
 
 # Ye ek 'Global Connection' bana dega jo niche ke saare functions use kar payenge
 cn = pymysql.connect(
-    host=DB_HOST,
+    host="your-cloud-db-host",
     user=DB_USER,
     password=DB_PASSWORD,
     db=DB_NAME,
