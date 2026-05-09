@@ -1,0 +1,40 @@
+<h1>show admin data</h1>
+{% if data %}
+<table border="1px">
+    <tr>
+        <th>name</th>
+        <th>address</th>
+        <th>contect</th>
+        <th>email</th>
+        <th>password</th>
+    </tr>
+{% for d in data%}
+    <tr>
+        <td>{{d[0]}}</td>
+        <td>{{d[1]}}</td>
+        <td>{{d[2]}}</td>
+        <td>{{d[3]}}</td>
+        <td>{{d[4]}}</td>
+
+<td>
+        <form method="POST" action="edit_student">
+            <input type="hidden" name="P1" value="{{d[6]}}" />
+            <button type="submit">Edit</button>
+
+        </form>
+
+        <form method="POST" action="delete_student">
+            <input type="hidden" name="H1" value="{{d[6]}}" />
+            <button type="submit">delete</button>
+        </form>
+    </td>
+
+
+    </tr>
+
+
+{% endfor %}
+
+</table>
+{% elif msg %}
+{% endif%}

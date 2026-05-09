@@ -1,0 +1,28 @@
+{% extends 'student.html' %}
+{% block m1 %}
+{% if data%}
+<h1>myquestion</h1>
+<table border="1px" class="mx-3">
+    <tr>
+        <th>qid</th>
+        <th>qsubject</th>
+        <th>question</th>
+    </tr>
+
+
+
+  {% for d in data%}
+<tr>
+    <td>{{d[0]}}</td>
+    <td>{{d[1]}}</td>
+    <td>{{d[2]}}</td>
+
+    </form>
+</tr>
+
+{% endfor %}
+    </table>
+{% elif msg %}
+{% endif%}
+
+{% endblock %}

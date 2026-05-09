@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="../static/bootstrap.min (22).css" type="text/css" xmlns="http://www.w3.org/1999/html">
+
+<script src="../static/bootstrap.bundle.min.js"></script>
+
+
+<form>
+
+    <nav class="navbar navbar-expand-lg bg-light" data-bs-theme="">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">query solver</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor06">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="Guest">Home
+
+          </a>
+
+
+      </ul>
+    </div>
+  </div>
+    </nav>
+</form>
+
+
+
+
+<h3>recent query</h3>
+
+{% if data%}
+
+
+{% for d in data%}
+
+<p class="text-primary">qid      :    {{d[0]}}</p>
+<p class="text-success">subject  : {{d[1]}}</p>
+<p class="text-warning">query :   {{d[2]}}</p>
+
+
+
+
+{% endfor %}
+{% elif msg %}
+{% endif%}

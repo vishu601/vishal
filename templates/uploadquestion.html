@@ -1,0 +1,22 @@
+<link href="../static/bootstrap.min (19).css" rel="stylesheet" type="text/css" />
+
+<form method="POST" action="upload_question">
+
+    <div>
+      <label  class="form-label mt-4"  >subject</label>
+      <input name="t1" type="text" class="form-control"  autocomplete="off"  >
+    </div>
+    <div>
+      <label for="exampleTextarea" class="form-label mt-4">question</label>
+      <textarea name="t2" class="form-control" id="exampleTextarea" rows="3"></textarea>
+    </div>
+
+    <br>
+    <br>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+
+</form>
+{% if vgt %}
+<h3>{{vgt}}</h3>
+{% endif %}

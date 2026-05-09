@@ -1,0 +1,37 @@
+{% if data%}
+<h1>show question</h1>
+<table border="1px">
+    <tr>
+        <th>qid</th>
+        <th>qsubject</th>
+        <th>question</th>
+    </tr>
+
+
+
+  {% for d in data%}
+<tr>
+    <td>{{d[0]}}</td>
+    <td>{{d[1]}}</td>
+    <td>{{d[2]}}</td>
+
+
+    <td>
+        <form method="post" action="edit_question">
+            <input type="hidden" name="H1" value="{{d[0]}}" />
+            <button type="submit">Edit</button>
+
+        </form>
+
+        <form method="post" action="delete_question">
+            <input type="hidden" name="H1" value="{{d[0]}}" />
+            <button type="submit">delete</button>
+        </form>
+    </td>
+
+</tr>
+
+{% endfor %}
+    </table>
+{% elif msg %}
+{% endif%}

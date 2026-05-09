@@ -1,0 +1,39 @@
+<center><h1>admin registration</h1></center>
+<link rel="stylesheet" href="../static/bootstrap.min (19).css" type="text/css"/>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+<form method="POST" action="Admin_reg">
+    <div>
+      <label  class="form-label mt-4">name</label>
+      <input name="t1" type="text" class="form-control" id="exampleInputPassword1" placeholder="enter name" autocomplete="off">
+    </div>
+    <div>
+      <label  class="form-label mt-4">address</label>
+      <input name="t2" type="text" class="form-control" id="exampleInputPassword2" placeholder="enter address" autocomplete="off">
+    </div>
+   <div>
+      <label  class="form-label mt-4">contect</label>
+      <input name="t3" type="text" class="form-control" id="exampleInputPassword3" placeholder="enter contect" autocomplete="off">
+    </div>
+    <div>
+      <label  class="form-label mt-4">email</label>
+      <input name="t4" type="email" class="form-control" id="exampleInputPassword4" placeholder="enter email" autocomplete="off">
+    </div>
+    <div>
+      <label  class="form-label mt-4">password</label>
+      <input name="t5" type="password" class="form-control" id="exampleInputPassword5" placeholder="enter password" autocomplete="off">
+    </div>
+<br>
+    <br>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+{% if vgt %}
+<h3>{{vgt}}</h3>
+{% endif %}
+
+         </div>
+    <div class="col-3"></div>
+</div>
+

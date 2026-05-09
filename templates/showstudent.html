@@ -1,0 +1,46 @@
+<h3>show student data</h3>
+{% if data%}
+<link rel="stylesheet" href="../static/bootstrap.min (19).css" type="text/css"/>
+<table border="1px;" class="table table-hover">
+    <tr  class="table-success">
+        <th scope="row">name</th>
+        <th scope="row">enrollment</th>
+        <th scope="row">couser</th>
+        <th scope="row">adyear</th>
+        <th scope="row">address</th>
+        <th scope="row">contect</th>
+        <th scope="row">email</th>
+        <th scope="row">manage</th>
+
+    </tr>
+    {% for d in data%}
+    <tr class="table-sucsess">
+        <td>{{d[0]}}</td>
+        <td>{{d[1]}}</td>
+        <td>{{d[2]}}</td>
+        <td>{{d[3]}}</td>
+        <td>{{d[4]}}</td>
+        <td>{{d[5]}}</td>
+        <td>{{d[6]}}</td>
+
+
+<td>
+        <form method="POST" action="edit_student">
+            <input type="hidden" name="P1" value="{{d[6]}}" />
+            <button type="submit">Edit</button>
+
+        </form>
+
+        <form method="POST" action="delete_student">
+            <input type="hidden" name="H1" value="{{d[6]}}" />
+            <button type="submit">delete</button>
+        </form>
+    </td>
+
+ </tr>
+
+
+    {% endfor %}
+    </table>
+{% elif msg %}
+{% endif%}

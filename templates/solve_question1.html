@@ -1,0 +1,35 @@
+{% extends 'student.html' %}
+{% block m1 %}
+{% if data%}
+<h1>solve question</h1>
+    <h3>Q. {{data[2]}}</h3>
+    <p>
+        Asked By : {{data[4]}}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Subject : {{data[1]}}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Date : {{data[3]}}
+    </p>
+        <form method="post" action="solve_question2">
+            <input type="hidden" name="H1" value="{{data[0]}}" />
+            Solution<br/>
+            <textarea name="T1" rows="5" cols="60"></textarea>
+            <br/>
+            <button type="submit">Upload Solution</button>
+        </form>
+
+{% elif msg %}
+{% endif%}
+
+{% if ans %}
+    {% for d in ans %}
+        <h5>{{d[2]}}</h5>
+        <p>
+            Solved By : {{data[4]}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Date : {{data[3]}}
+        </p>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
