@@ -14,7 +14,7 @@ def home():
     msg = ""
     if (n>0):
         records = cur.fetchall()
-        return render_template("home.html",data=records)
+        return render_template("Home.html", data=records)
     else:
         return render_template("home.html",msg="no data")
 
