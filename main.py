@@ -6,22 +6,26 @@ myapp.secret_key="super secret key"
 import os
 
 
-# Pura connection logic ek hi variable mein daal do
-# Render par ye details Aiven ya Render DB se milengi
-DB_HOST = "your-cloud-db-host" 
-DB_USER = "your-user"
-DB_PASSWORD = "your-password"
-DB_NAME = "demo"
-DB_PORT = 12345 # Cloud DB ka port aksar 3306 nahi hota
+# --- SMART CONNECTION LOGIC ---
+# Ye logic check karega ki code Render pe hai ya Local pe
+DB_HOST = os.getenv('DB_HOST', 'localhost') # Local pe 'localhost' uthayega
+DB_USER = os.getenv('DB_USER', 'root')      # Local pe 'root' uthayega
+DB_PASSWORD = os.getenv('DB_PASSWORD', '')  # Local pe khali password
+DB_NAME = os.getenv('DB_NAME', 'demo')      # Aapka database naam
+DB_PORT = int(os.getenv('DB_PORT', 3306))   # Default port 3306
 
-# Ye ek 'Global Connection' bana dega jo niche ke saare functions use kar payenge
-cn = pymysql.connect(
-    host="your-cloud-db-host",
-    user=DB_USER,
-    password=DB_PASSWORD,
-    db=DB_NAME,
-    port=DB_PORT,
-    autocommit=True
+try:
+    cn = pymysql.connect(
+        host=DB_HOST,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        database=DB_NAME,
+        port=DB_PORT,
+        autocommit=True
+    )
+    print("✅ Database Connected Successfully!")
+except Exception as e:
+    print(f"❌ Connection Failed: {e}")
 )
 
 @myapp.route("/home")
