@@ -3,10 +3,34 @@ from flask import Flask,render_template,request,redirect,url_for,session
 import pymysql
 myapp=Flask(__name__)
 myapp.secret_key="super secret key"
+import os
+
+
+# --- SMART CONNECTION LOGIC ---
+# Ye logic check karega ki code Render pe hai ya Local pe
+DB_HOST = os.getenv('DB_HOST', 'localhost') # Local pe 'localhost' uthayega
+DB_USER = os.getenv('DB_USER', 'root')      # Local pe 'root' uthayega
+DB_PASSWORD = os.getenv('DB_PASSWORD', '')  # Local pe khali password
+DB_NAME = os.getenv('DB_NAME', 'demo')      # Aapka database naam
+DB_PORT = int(os.getenv('DB_PORT', 3306))   # Default port 3306
+
+try:
+    cn = pymysql.connect(
+        host=DB_HOST,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        database=DB_NAME,
+        port=DB_PORT,
+        autocommit=True
+    )
+    print("✅ Database Connected Successfully!")
+except Exception as e:
+    print(f"❌ Connection Failed: {e}")
+)
 
 @myapp.route("/home")
 def home():
-    cn = pymysql.connect(host="localhost", port=3306, user="root", password="", db="demo", autocommit=True)
+    cn = pymysql.connect(host="localhost", user="vishal_dev", password="", db="demo")
     cur = cn.cursor()
     sql = "select * from questions"
     cur.execute(sql)
@@ -14,7 +38,7 @@ def home():
     msg = ""
     if (n>0):
         records = cur.fetchall()
-        return render_template("home.html",data=records)
+        return render_template("Home.html", data=records)
     else:
         return render_template("home.html",msg="no data")
 
