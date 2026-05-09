@@ -3,6 +3,26 @@ from flask import Flask,render_template,request,redirect,url_for,session
 import pymysql
 myapp=Flask(__name__)
 myapp.secret_key="super secret key"
+import os
+
+
+# Pura connection logic ek hi variable mein daal do
+# Render par ye details Aiven ya Render DB se milengi
+DB_HOST = "your-cloud-db-host" 
+DB_USER = "your-user"
+DB_PASSWORD = "your-password"
+DB_NAME = "demo"
+DB_PORT = 12345 # Cloud DB ka port aksar 3306 nahi hota
+
+# Ye ek 'Global Connection' bana dega jo niche ke saare functions use kar payenge
+cn = pymysql.connect(
+    host=DB_HOST,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    db=DB_NAME,
+    port=DB_PORT,
+    autocommit=True
+)
 
 @myapp.route("/home")
 def home():
