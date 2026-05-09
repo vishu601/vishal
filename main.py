@@ -6,7 +6,7 @@ myapp.secret_key="super secret key"
 
 @myapp.route("/home")
 def home():
-    cn = pymysql.connect(host="localhost", port=3306, user="root", password="", db="demo", autocommit=True)
+    cn = pymysql.connect(host="localhost", user="vishal_dev", password="", db="demo")
     cur = cn.cursor()
     sql = "select * from questions"
     cur.execute(sql)
